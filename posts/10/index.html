@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
+
+    
+
+    <meta name="author" content="Daniel Agyen-Brefo">
+    <meta name="description" content="Happy new year Guys, I asked a few friends in my CCNA class about the topics they&rsquo;ve been struggling with and majority of them said Spanning tree Protocol and Subnetting. I have decided today to explain IPV4 subnetting the best way that i can as i don&rsquo;t seem to have any problem with it, so just spare me a few minutes and lets see what we can learn together. Let’s find the subnet and host part first, but before that take a moment to analyze this table:">
+    <meta name="keywords" content="networking,cybersecurity,python,ansible, wireshack,blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="IPv4 Subnetting – My Way!"/>
+<meta name="twitter:description" content="Happy new year Guys, I asked a few friends in my CCNA class about the topics they&rsquo;ve been struggling with and majority of them said Spanning tree Protocol and Subnetting. I have decided today to explain IPV4 subnetting the best way that i can as i don&rsquo;t seem to have any problem with it, so just spare me a few minutes and lets see what we can learn together. Let’s find the subnet and host part first, but before that take a moment to analyze this table:"/>
+
+    <meta property="og:title" content="IPv4 Subnetting – My Way!" />
+<meta property="og:description" content="Happy new year Guys, I asked a few friends in my CCNA class about the topics they&rsquo;ve been struggling with and majority of them said Spanning tree Protocol and Subnetting. I have decided today to explain IPV4 subnetting the best way that i can as i don&rsquo;t seem to have any problem with it, so just spare me a few minutes and lets see what we can learn together. Let’s find the subnet and host part first, but before that take a moment to analyze this table:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.agyend.github.io/posts/10/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-01-01T15:50:37+01:00" />
+<meta property="article:modified_time" content="2021-01-01T15:50:37+01:00" />
+
+
+
+    <title>
+  IPv4 Subnetting – My Way! · AGYEND
+</title>
+
+    
+      <link rel="canonical" href="https://www.agyend.github.io/posts/10/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.708686f8ab8176e91d44fcbe488a0fe0333b94f405cf18a52383d67ba22f0ccb.css" integrity="sha256-cIaG&#43;KuBdukdRPy&#43;SIoP4DM7lPQFzxilI4PWe6IvDMs=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.aa883b9ce35a8ff4a2a5008619005175e842bb18a8a9f9cc2bbcf44dab2d91fa.css" integrity="sha256-qog7nONaj/SipQCGGQBRdehCuxioqfnMK7z0Tastkfo=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    
+
+    <meta name="generator" content="Hugo 0.87.0" />
+  </head>
+
+  
+  
+    
+  
+  <body class="preload-transitions colorscheme-auto"
+        onload=""
+  >
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      AGYEND
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">About Me</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/images/dannycv.pdf">Resume</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://www.agyend.github.io/posts/10/">
+              IPv4 Subnetting – My Way!
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2021-01-01T15:50:37&#43;01:00'>
+                January 1, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <p>Happy new year Guys, I asked a few friends in my CCNA class about the topics they&rsquo;ve been struggling with and majority of them said Spanning tree Protocol and Subnetting. I have decided today to explain IPV4 subnetting the best way that i can as i don&rsquo;t seem to have any problem with it, so just spare me a few minutes and lets see what we can learn together. Let’s find the subnet and host part first, but before that take a moment to analyze this table:</p>
+<p><strong>NNNNNNNN.NNNNNNNN.SSHHHHHH.HHHHHHHH (/18)</strong></p>
+<p><strong>N = Network Bit</strong></p>
+<p><strong>S = Subnet Bit</strong></p>
+<p><strong>H = Host Bit</strong></p>
+<p>I am going to use the IPv4 address: <strong>192.168.234.156/18</strong> as an example.</p>
+<p>A network part is always a full 8-bits like <strong>/8;</strong> <strong>/16</strong> or <strong>/24.</strong> If you have /25 for example, you will have only <strong>1-bit</strong> for the subnet part. So, it is going to be <strong>24-bit</strong> for the network part, <strong>1-bit</strong> for the subnet part, and <strong>7-bit</strong> for the host part: <strong>nnnnnnnn.nnnnnnnn.nnnnnnnn.shhhhhhh</strong> because remember IPv4 addresses are 32-bits binary length.</p>
+<p>So, if you need to know how many subnets are available in an IP address, the math is 2 to the power of the number of subnet bit <strong>(2^S)</strong>-If you don’t know what that means, I invite you to read this article. In our table example above, we have 2 subnets bit. So, <strong>2^2 = 4</strong>. So, this means that we have 4 subnets available in the subnet mask 255.255.192.0 (/18).</p>
+<p><strong>First Subnet:</strong> 192.168.0.0</p>
+<p><strong>Second Subnet:</strong> 192.168.64.0</p>
+<p><strong>Third Subnet:</strong> 192.168.128.0</p>
+<p><strong>Forth Subnet:</strong> 192.168.192.0</p>
+<p>We are going to go more in detail how to find those subnets later in the article.</p>
+<p>Now, to find the number of hosts available per subnet, it is kinda the same procedure but you need to count the numbers of bit leftover (the number of <strong>H</strong> in the table above) minus 2 because you have <strong>two addresses reserved</strong> for the subnet part and the broadcast part <strong>(2^H – 2)</strong>. Here, we have 14-bit for the host portion. So, <strong>2^14 – 2 = 16,382</strong></p>
+<p>So, in the address 192.168.0.0/18 we have <strong>4 subnets</strong> available and <strong>16.382</strong> hosts available per subnet.</p>
+<p>Now for subnetting, you will have first to write down this little lookup table. You can do it during the exam as well, what I recommend:</p>
+<pre><code>   Address Block Size=&gt;   128	64  32	16  8 4	 2  1
+
+                           1     2   3   4  5  6  7  8
+</code></pre>
+<p><strong>Significant Mask Octet=&gt;   128	192	224	240	248	252	254	255</strong></p>
+<p>The subnet mask of our address is <strong>255.255.192.0 ( /18)</strong>, and it is between <strong>255.255.0.0 ( /16)</strong> and <strong>255.255.255.0 ( /24)</strong>. So, we have to subtract the lower subnet mask <strong>( /16)</strong> from our subnet mask <strong>( /18)</strong> : 18 – 16 = 2.</p>
+<p>If you take a look at the lookup table, in the middle row you can locate 2. This is the number of binary bit in the subnet mask (255.255.192.0 in binary is <strong>x.x.11000000.00000000)</strong> and it tells you that in the top row the address block is 64 (the number above 2) which means every <strong>64</strong> IP addresses is a new subnet. After that, take from our IP address (192.168.<strong>234</strong>.156) <strong>234</strong> and divide by the block number 64, this will tells you the block it belongs to <strong>234/64 = 3.656</strong>. Then you have to multiply the result by the block number -forget about the fraction, just multiply by the whole number: <strong>3 x 64 = 192</strong>. This means that the subnet of the address <strong>192.168.234.156</strong> starts at <strong>192.168.192.0</strong>. To find the next subnet, you will have to add the block number -in our case 64- to the subnet <strong>192</strong> to find the next subnet; <strong>192 + 64 = 256</strong>. In this case, you now know that <strong>192.168.192.0</strong> is the last subnet available in the network.</p>
+<p>Finally, we now know that the range of this IP address is <strong>192</strong> through <strong>255</strong>.</p>
+<p>So, the subnet range for our IP address are:</p>
+<p><strong>First Subnet:</strong> 192.168.0.0 – 192.168.63.255</p>
+<p><strong>Second Subnet:</strong> 192.168.64.0 – 192.168.127.255</p>
+<p><strong>Third Subnet:</strong> 192.168.128.0 – 192.168.192.255</p>
+<p><strong>Forth Subnet:</strong> 192.168.192.0 – 192.168.255.255</p>
+<p>Now, to find the broadcast address you have to subtract -1 to each next subnet, like:</p>
+<p><strong>192.168.64.0</strong></p>
+<p><strong>–1</strong></p>
+<p><strong>_____________</strong></p>
+<p><strong>192.168.63.255</strong></p>
+<p>Then, to find the first and last usable IP addresses it is easy, you just have to add <strong>+1</strong> to the subnet and subtract <strong>-1</strong> to the broadcast address.</p>
+<p>So, let’s break down the ip address <strong>192.168.234.156 /18</strong></p>
+<ol>
+<li></li>
+</ol>
+<hr>
+<p><strong>First Subnet:</strong> 192.168.0.0</p>
+<p><strong>First Usable Address:</strong> 192.168.0.1</p>
+<p><strong>Last Usable Address:</strong> 192.168.63.254</p>
+<p><strong>Brodcast Address:</strong> 192.168.63.255</p>
+<ol start="2">
+<li></li>
+</ol>
+<hr>
+<p><strong>Second Subnet:</strong> 192.168.64.0</p>
+<p><strong>First Usable Address:</strong> 192.168.64.1</p>
+<p><strong>Last Usable Address:</strong> 192.168.127.254</p>
+<p><strong>Brodcast Address:</strong> 192.168.127.255</p>
+<ol start="3">
+<li></li>
+</ol>
+<hr>
+<p><strong>Third Subnet:</strong> 192.168.128.0</p>
+<p><strong>First Usable Address:</strong> 192.168.128.1</p>
+<p><strong>Last Usable Address:</strong> 192.168.191.254</p>
+<p><strong>Brodcast Address:</strong> 192.168.191.255</p>
+<ol start="4">
+<li></li>
+</ol>
+<hr>
+<p><strong>Forth Subnet:</strong> 192.168.192.0</p>
+<p><strong>First Usable Address:</strong> 192.168.192.1</p>
+<p><strong>Last Usable Address:</strong> 192.168.255.254</p>
+<p><strong>Brodcast Address:</strong> 192.168.255.255</p>
+<p>You now can see that the ip address 192.168.234.156 belong in the last subnet.</p>
+<p>In conclusion, today we reviewed how to find the subnet part, the host part, the first usable address, the last usable address, the broadcast address, and how to do subnetting. I hope it was clear and you enjoyed this article. HAPPY NEW YEAR!</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2021
+         Daniel Agyen-Brefo 
+      
+      
+      
+        
+      
+    </section>
+  </footer>
+
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js" integrity="sha256-A7F3afT5GuNWZ&#43;HyocqMFvUFYlds&#43;Q/zKzF5kmkU2qU="></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

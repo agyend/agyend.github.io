@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AGYEND</title>
+    <link>https://www.agyend.github.io/</link>
+    <description>Recent content on AGYEND</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 16 Aug 2021 09:54:14 +0100</lastBuildDate><atom:link href="https://www.agyend.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Me</title>
+      <link>https://www.agyend.github.io/about/</link>
+      <pubDate>Mon, 16 Aug 2021 14:13:54 +0100</pubDate>
+      
+      <guid>https://www.agyend.github.io/about/</guid>
+      <description>This Blog is going to be about the things that i am presently working on and what might trigger my interest at any given time. My name is Daniel Agyen-Brefo. 32 years, single, a Ghanaian and a Christian. I&amp;rsquo;m passionate about technology and have in the past worked as a Desktop/Network Support technician. I am starting a new career in networking and cloud technologies and have as at now obtained the Cisco Certified network Associate (CCNA) certification.</description>
+    </item>
+    
+    <item>
+      <title>CCNP ENCOR (350-401)</title>
+      <link>https://www.agyend.github.io/posts/2/</link>
+      <pubDate>Mon, 16 Aug 2021 09:54:14 +0100</pubDate>
+      
+      <guid>https://www.agyend.github.io/posts/2/</guid>
+      <description>I have started sudying for the Cisco CCNP ENCOR (350-401) with David Bombal and Kevin Wallace. I&amp;rsquo;ve loved every bit so far and will update you on my progress from time to time. I&amp;rsquo;m giving myself until December 2021 to nail this down and probably get a specialization in either wireless or Security.
+Materials being used
+ David Bombal and kevin Wallace Video Course on Udemy Cisco Press&amp;rsquo;s CCNP and CCIE Enterprise Core (350-401) Official Cert guide  </description>
+    </item>
+    
+    <item>
+      <title> CCNA (200-301) Experience</title>
+      <link>https://www.agyend.github.io/posts/3/</link>
+      <pubDate>Sat, 14 Aug 2021 14:46:43 +0100</pubDate>
+      
+      <guid>https://www.agyend.github.io/posts/3/</guid>
+      <description>I recently passed the Cisco Certified Networking Associate (CCNA) exam. This is a great certification if you want to work in networking or IT in general. Here is some general information about the exam:
+ Question Count: Over 100 questions (102-104) Question Types: Multiple choice and drag-and-drop Time: 120 minutes Cost: $300 USD Score Required to Pass: 825 (out of 1000)  Materials Used
+I used:
+ the official CCNA Course guide(Volume 1 &amp;amp; 2), Neil Anderson&amp;rsquo;s Udemy Couse, David Bombal&amp;rsquo;s Course on Udemy and his packet tracer Labs, a Bit of CBTNuggets and a lot of motivation from NetworkChuck and David Bombal, not forgetting the Quizzes from Keith Barker.</description>
+    </item>
+    
+    <item>
+      <title>AWS Certified Solutions Archtect Associate SAA-C02 Exam</title>
+      <link>https://www.agyend.github.io/posts/aws/</link>
+      <pubDate>Fri, 02 Jul 2021 15:02:25 +0100</pubDate>
+      
+      <guid>https://www.agyend.github.io/posts/aws/</guid>
+      <description>Hello Guys!
+Today, i bought this course (AWS Certified Solutions Archtect Associate SAA-C02 Exam) on Udemy by instructors: Anthony Sequeira and NetworkChuck. It&amp;rsquo;s my first cloud Tech course and i&amp;rsquo;m going to start studying for this cert after my CCNA together with the CompTIA security+. I got a huge discount and made sense to buy it today rather than later.</description>
+    </item>
+    
+    <item>
+      <title>CompTia Security&#43;</title>
+      <link>https://www.agyend.github.io/posts/1/</link>
+      <pubDate>Thu, 01 Apr 2021 10:33:06 +0100</pubDate>
+      
+      <guid>https://www.agyend.github.io/posts/1/</guid>
+      <description>I was previously preparing for the old CompTia Security+ SYS501 with Mike Meyers but dropped that for a while in favour of the CCNA so now that the CCNA is done i&amp;rsquo;ve decided to take the new exam SYS601 in October.
+These are all the resources that I’ve found useful for me, so bear in mind that they could not suit you:
+Cybrary Security+ course by Anthony Harris
+CompTIA Security+ Get Certified Get Ahead: SY0-501 Study Guide by Darril Gibson</description>
+    </item>
+    
+    <item>
+      <title>How I Convert Binary Numbers into Decimal Numbers.</title>
+      <link>https://www.agyend.github.io/posts/binary/</link>
+      <pubDate>Tue, 05 Jan 2021 17:19:48 +0100</pubDate>
+      
+      <guid>https://www.agyend.github.io/posts/binary/</guid>
+      <description>Hello Guys!
+I want to share with you today, how I learned to Convert the Decimal Numbers into Binary Numbers (This article is especially for whom don’t understand the Binary Number).
+For example for Decimal (3) in Binary you write it like (011) but it’s easier for you to say it like (110), (make sure to write it start to the right and go to the left).
+So, now to translate the Binary Number 011, how to do that?</description>
+    </item>
+    
+    <item>
+      <title>IPv4 Subnetting – My Way!</title>
+      <link>https://www.agyend.github.io/posts/10/</link>
+      <pubDate>Fri, 01 Jan 2021 15:50:37 +0100</pubDate>
+      
+      <guid>https://www.agyend.github.io/posts/10/</guid>
+      <description>Happy new year Guys, I asked a few friends in my CCNA class about the topics they&amp;rsquo;ve been struggling with and majority of them said Spanning tree Protocol and Subnetting. I have decided today to explain IPV4 subnetting the best way that i can as i don&amp;rsquo;t seem to have any problem with it, so just spare me a few minutes and lets see what we can learn together. Let’s find the subnet and host part first, but before that take a moment to analyze this table:</description>
+    </item>
+    
+  </channel>
+</rss>
